@@ -4,6 +4,7 @@ def print_last_digit(number):
     print("{}".format(digit), end='')
     return digit
 
+
 print_last_digit = __import__('9-print_last_digit').print_last_digit
 
 print_last_digit(98)
