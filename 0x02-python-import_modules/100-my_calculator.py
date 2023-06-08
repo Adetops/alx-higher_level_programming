@@ -20,4 +20,3 @@ if __name__ == '__main__':
     elif operator == "/":
         result = div(a, b)
     print(a, operator, b, '=', result)
-        
