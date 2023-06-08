@@ -1,6 +1,15 @@
 #!/usr/bin/python3
 if __name__ == '__main__':
     from calculator_1 import add, sub, mul, div
+    '''My calculator function
+
+    Args:
+        a: first integer
+        b: second integer
+
+    Return:
+        values and the result of their operations.
+    '''
     a = 10
     b = 5
     print('{:d} + {:d} = {:d}'.format(a, b, add(a, b)))
