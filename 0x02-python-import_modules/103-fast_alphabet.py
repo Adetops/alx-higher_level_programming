@@ -1,3 +1,2 @@
 #!/usr/bin/python3
-lists = ['ABCDEFGHIJKLMNOPQRSTUVWXYZ']
-print(lists[0])
+print(__import__('string').ascii_uppercase)
