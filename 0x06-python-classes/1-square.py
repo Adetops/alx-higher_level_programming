@@ -3,6 +3,8 @@
 
 
 class Square:
+    """class square with a private instance attribute."""
+
     def __init__(self, size):
         """ The __init__ method takes only one arg.
 
