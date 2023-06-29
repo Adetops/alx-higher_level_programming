@@ -48,11 +48,14 @@ class Square:
         """ public instance that prints in standard output. """
         if (self.__size == 0):
             print()
-        else:
-            for length in range(self.__size):
-                for breadth in range(self.__size + self.__position[0]):
-                    if (breadth < self.__position[0]):
-                        print(end=" ")
-                    else:
-                        print("#", end="")
-                print()
+            return
+
+        [print() for i in range(0, self.__position[1])]
+
+        for length in range(self.__size):
+            for breadth in range(self.__size + self.__position[0]):
+                if (breadth < self.__position[0]):
+                    print(end=" ")
+                else:
+                    print("#", end="")
+            print()
