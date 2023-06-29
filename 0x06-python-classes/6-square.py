@@ -55,7 +55,7 @@ class Square:
 
         for length in range(self.__size):
             for val in range(self.__position[0]):
-                print(" ", end="")
+                [print(" ", end="")]
             for breadth in range(self.__size):
-                print("#", end="")
+                [print("#", end="")]
             print()
