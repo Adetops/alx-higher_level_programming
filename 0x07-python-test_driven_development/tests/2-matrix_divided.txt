@@ -1,0 +1,82 @@
+==============================
+How to Use 2-matrix_divided.py
+==============================
+
+This is a doc test file for the function ``matrix_divided(matrix, div):``
+
+The function divides all elements of a matrix and returns a new matrix
+
+::
+	>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+	>>> matrix = [[1, 2, 3], [4, 5, 6]]
+	
+	>>> matrix_divided(matrix, 3)
+	[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+	>>> matrix_divided(matrix, 2)
+	[[0.50, 1.0, 1.50], [2.0, 2.50, 3.0]]
+
+``matrix`` must still remain unchanged
+::
+	>>> matrix
+	[[1, 2, 3], [4, 5, 6]]
+
+``matrix`` must be a list of lists
+::
+	>>> matrix_divided([(2, 3, 4), (5, 6, 7)], 2)
+	Traceback (most recent call last):
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+	>>> matrix_divided([(2, 3, 4), [5, 6, 7]], 2)
+	Traceback (most recent call last):
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+The element of each `list` in the ``matrix`` must either be an int or a float
+::
+	>>> matrix_divided([["he", 3, 4], [5, 6, 7]], 5)
+	Traceback (most recent call last):
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+	>>> matrix_divided([[2, 3, 4], [5, "school", 7]], 5)
+	Traceback (most recent call last):
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+	>>> matrix_divided([[2, 3, None], [5, 6, 7]], 3)
+	Traceback (most recent call last):
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+	>>> matrix_divided([["he", 3, 4], None], 5)
+	Traceback (most recent call last):
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Each `list` in the ``matrix`` must have the same number of elements
+::
+	>>> matrix_divided([[2, 3, 4], [5, 6, 7, 8]], 4)
+	Traceback (most recent call last):
+	TypeError: Each row of the matrix must have the same size
+
+	>>> matrix_divided([[2, 3, 4, 9, 10], [5, 6, 7, 8]], 4)
+	Traceback (most recent call last):
+	TypeError: Each row of the matrix must have the same size
+
+The ``div`` must either be an integer or a float otherwise, raises an error
+::
+	>>> matrix_divided(matrix, "School")
+	Traceback (most recent call last):
+	TypeError: div must be a number
+	
+	>>> matrix_divided(matrix, None)
+	Traceback (most recent call last):
+	TypeError: div must be a number
+
+	>>> matrix_divided(matrix, [1, 2, 3])
+	Traceback (most recent call last):
+	TypeError: div must be a number	
+
+	>>> matrix_divided(matrix, (3, 2))
+	Traceback (most recent call last):
+	TypeError: div must be a number	
+
+	>>> matrix_divided(matrix, "2")
+	Traceback (most recent call last):
+	TypeError: div must be a number	
