@@ -1,0 +1,57 @@
+=============================
+Test Documentation for Task 0
+=============================
+
+This text file contains the test for only one function which is ``add_integer()``.
+
+Numbers
+=======
+
+>>> from ___add_integer import add_integer
+
+``add_integer()`` takes two parameters and returns the sum.
+The initial value of the second parameter is defined to be `98`.
+The return value is exactly like using ``+`` operator.
+::
+	>>> add_integer(3, 9)
+	12
+
+It can take negative value as a parameter
+::
+	>>> add_integer(48, -7)
+	41
+
+It also takes one parameter because there's a predefined second value.
+::
+	>>> add_integer(35)
+	133
+
+It also works with floating-point numbers but truncates the decimal value.
+::
+	>>> add_integer(4.8, 5)
+	9
+
+The function raises a TypeError exception if any one of the arguments
+happens not to be an integer
+::
+	>>> add_integer(23, "School")
+	b must be an integer
+
+	>>> add_integer(b)
+	a must be an integer
+
+It should raise a TypeError Message if no argument is passed
+::
+	>>> add_integer()
+	Traceback (most recent call last):
+	TypeError: add_integer() missing 1 required positional argument: 'a'
+
+It shouldn't take a list or tuple as well
+::
+	>>> add_integer([1, 2]) #doctest +ELLIPSIS
+	Traceback (most recent call last):
+	TypeError: can only concatenate ...
+
+	>>> add_integer(3, (6, 7)) #doctest +ELLIPSIS
+	Traceback (most recent call last):
+	TypeError: unsupported operand type(s) ...
