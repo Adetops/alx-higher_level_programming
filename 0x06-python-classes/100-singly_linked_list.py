@@ -6,10 +6,19 @@ class Node:
     """Setting up the node class """
 
     def __init__(self, data, next_node=None):
+        """ Initializing the node
+
+        Args:
+            data (int): integer value
+            next_node (pointer): pointer to the next node
+        """
+
         self.data = data
         self.next_node = next_node
 
     @property
+    """ To set and get the data value """
+
     def data(self):
         return self.__data
 
@@ -20,6 +29,8 @@ class Node:
         self.__data = value
 
     @property
+    """ To set and get the next_node pointer. """
+
     def next_node(self):
         return self.__next_node
 
@@ -29,7 +40,9 @@ class Node:
             raise TypeError("next_node must be a Node object")
         self.__next_node = value
 
+
 class SinglyLinkedList:
+    """ Defining a singly linked list that'll implement the node """
 
     def __init__(self):
         self.__head = None
