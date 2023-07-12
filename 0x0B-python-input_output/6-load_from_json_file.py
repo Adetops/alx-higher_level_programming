@@ -12,5 +12,5 @@ def load_from_json_file(filename):
     '''
 
     with open(filename, mode='r') as f:
-        my_obj = (json.load(f))
+        my_obj = json.load(f)
         return my_obj
