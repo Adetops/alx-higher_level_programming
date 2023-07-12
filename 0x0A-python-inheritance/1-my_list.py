@@ -5,8 +5,6 @@
 class MyList(list):
     ''' This is a class defined as a subclass.
 
-    This subclass inherits from the superclass 'list'.
-
     Method:
         print_sorted(self): This method prints the list in sorted order.
 
