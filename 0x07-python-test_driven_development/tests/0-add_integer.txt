@@ -60,3 +60,24 @@ It shouldn't take a list or tuple as well
 	>>> add_integer(3, (6, 7))
 	Traceback (most recent call last):
 	TypeError: b must be an integer
+
+The function should fail if infinity is passed
+::
+	>>> add_integer(float('inf'))
+	Traceback (most recent call last):
+	OverflowError: cannot convert float infinity to integer
+
+	>>> add_integer(5, float('inf'))
+	Traceback (most recent call last):
+	OverflowError: cannot convert float infinity to integer
+
+And again with NaN numbers.
+::
+
+	>>> add_integer(float('nan'))
+	Traceback (most recent call last):
+	ValueError: cannot convert float NaN to integer
+
+	>>> add_integer(5, float('nan'))
+	Traceback (most recent call last):
+	ValueError: cannot convert float NaN to integer
