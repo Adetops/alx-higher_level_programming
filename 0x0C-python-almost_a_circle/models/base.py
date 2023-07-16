@@ -6,5 +6,5 @@ class Base:
         if (id != None):
             self.id = id
         if (id == None):
-            __nb_objects += 1
-            self.id = __nb_objects
+            type(self).__nb_objects += 1
+            self.id = type(self).__nb_objects
