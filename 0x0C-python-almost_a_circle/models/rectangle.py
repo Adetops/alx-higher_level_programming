@@ -26,6 +26,7 @@ class Rectangle(Base):
     @property
     def width(self):
         ''' width (int): the rectangle width '''
+
         return (self.__width)
 
     @width.setter
@@ -39,6 +40,7 @@ class Rectangle(Base):
     @property
     def height(self):
         ''' height (int): the rectangle height '''
+
         return (self.__height)
 
     @height.setter
@@ -52,6 +54,7 @@ class Rectangle(Base):
     @property
     def x(self):
         ''' x (int): horizontal axis '''
+
         return (self.__x)
 
     @x.setter
@@ -65,6 +68,7 @@ class Rectangle(Base):
     @property
     def y(self):
         ''' y (int): vertical axis '''
+
         return (self.__y)
 
     @y.setter
@@ -96,4 +100,4 @@ class Rectangle(Base):
         ''' String representation of Rectangle class '''
 
         return (f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - \
-                {self.__width}/{self.__height}")
+{self.__width}/{self.__height}")
