@@ -73,7 +73,7 @@ class Rectangle(Base):
 
     @y.setter
     def y(self, val):
-        if (type(value) != int):
+        if (type(val) != int):
             raise TypeError("y must be an integer")
         elif (val < 0):
             raise ValueError("y must be >= 0")
@@ -90,14 +90,21 @@ class Rectangle(Base):
         for r in range(self.__y):
             print()
         for i in range(self.__height):
-            for s in range(self.__x):
-                print(' ', end='')
-            for j in range(self.__width):
-                print('#', end='')
-            print()
+            print((' ' * self.x) + ('#' * self.width))
 
     def __str__(self):
         ''' String representation of Rectangle class '''
 
         return (f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - \
 {self.__width}/{self.__height}")
+
+    def update(self, *args):
+        ''' method that assigns an argument to each attribute
+        Args:
+            args (any): variable-length argument
+        '''
+
+        if len(args) > 0:
+            vars = ['id', 'width', 'height', 'x', 'y']
+            for idx, val in enumerate(args):
+                setattr(self, vars[idx], val)
