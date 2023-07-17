@@ -108,4 +108,3 @@ class Rectangle(Base):
             vars = ['id', 'width', 'height', 'x', 'y']
             for idx, val in enumerate(args):
                 setattr(self, vars[idx], val)
-                
