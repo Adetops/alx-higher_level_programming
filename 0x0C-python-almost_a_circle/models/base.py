@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 ''' Module that defines the base init for this project '''
+import json
 
 
 class Base:
@@ -15,3 +16,17 @@ class Base:
         if (id is None):
             type(self).__nb_objects += 1
             self.id = type(self).__nb_objects
+
+    @staticmethod
+    def to_json_string(list_dictionaries):
+        ''' JSON string representation of list_dictionaries
+        Args:
+            list_dictionaries (list): list of dictionaries
+
+        Return:
+            The JSON string representation
+        '''
+
+        if (list_dictionaries is None) or (len(list_dictionaries) == 0):
+            return ('[]')
+        return (json.dumps(list_dictionaries))
