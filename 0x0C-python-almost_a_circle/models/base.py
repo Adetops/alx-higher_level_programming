@@ -42,6 +42,7 @@ class Base:
                 f.write('[]')
             if list_objs is not None:
                 for i in range(len(list_objs)):
-                    json_not = Base.to_json_string(list_objs[i])
-                    list_obj.append(json_not)
+                    json_n = Base.to_json_string(list_objs[i].to_dictionary())
+                    list_obj.append(json_n)
+            list_obj = Base.to_json_string(list_obj)
             f.write(list_obj)
