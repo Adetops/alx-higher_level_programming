@@ -28,7 +28,7 @@ class Base:
             The JSON string representation
         '''
 
-        if list_dictionaries is None:
+        if list_dictionaries is None or bool(list_dictionaries) is False:
             return "[]"
         return json.dumps(list_dictionaries)
 
@@ -37,20 +37,19 @@ class Base:
         ''' writes the JSON string representation of list_objs to a file '''
 
         file = "{}.json".format(cls.__name__)
-
+        obj_list = []
         with open(file, "w") as file_obj:
-            file_obj.write('[')
             for i in range(len(list_objs)):
-                file_obj.write(Base.to_json_string(
-                    list_objs[i].to_dictionary()))
-                if i != len(list_objs) - 1:
-                    file_obj.write(', ')
-            file_obj.write(']')
+                obj_list.append(list_objs[i].to_dictionary())
+                JStr = Base.to_json_string(obj_list)
+            file_obj.write(JStr)
 
     @staticmethod
     def from_json_string(json_string):
         """Returns the list of JSON string representation"""
 
+        if json_string is None or bool(json_string) is False:
+            return []
         return json.loads(json_string)
 
     @classmethod
