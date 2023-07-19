@@ -16,22 +16,21 @@ class Rectangle(Base):
             x (int): the position of the rectangle on the latitude
             y (int): the position of the rectangle on the longitude
         '''
-
+        
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
         super().__init__(id)
-        self.__width = width
-        self.__height = height
-        self.__x = x
-        self.__y = y
 
     @property
     def width(self):
         ''' width (int): the rectangle width '''
-
         return (self.__width)
 
     @width.setter
     def width(self, value):
-        if (type(value) is not int):
+        if not isinstance(value, int):
             raise TypeError("width must be an integer")
         if (value <= 0):
             raise ValueError("width must be > 0")
@@ -40,26 +39,24 @@ class Rectangle(Base):
     @property
     def height(self):
         ''' height (int): the rectangle height '''
-
         return (self.__height)
 
     @height.setter
     def height(self, value):
-        if (type(value) is not int):
+        if not isinstance(value, int):
             raise TypeError("height must be an integer")
-        if (value <= 0):
+        if value <= 0:
             raise ValueError("height must be > 0")
         self.__height = value
 
     @property
     def x(self):
         ''' x (int): horizontal axis '''
-
         return (self.__x)
 
     @x.setter
     def x(self, value):
-        if (type(value) is not int):
+        if type(value) is not int:
             raise TypeError("x must be an integer")
         if (value < 0):
             raise ValueError("x must be >= 0")
@@ -68,12 +65,11 @@ class Rectangle(Base):
     @property
     def y(self):
         ''' y (int): vertical axis '''
-
         return (self.__y)
 
     @y.setter
     def y(self, val):
-        if (type(val) is not int):
+        if type(val) is not int:
             raise TypeError("y must be an integer")
         if (val < 0):
             raise ValueError("y must be >= 0")
@@ -81,7 +77,6 @@ class Rectangle(Base):
 
     def area(self):
         ''' method returns the area of rectangle '''
-
         return (self.__height * self.__width)
 
     def display(self):
@@ -94,7 +89,6 @@ class Rectangle(Base):
 
     def __str__(self):
         ''' String representation of Rectangle class '''
-
         return (f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - \
 {self.__width}/{self.__height}")
 
