@@ -41,10 +41,11 @@ class Base:
         obj_list = []
         with open(file, "w") as file_obj:
             if list_objs is None:
-                file_obj.write([])
-            for i in range(len(list_objs)):
-                obj_list.append(list_objs[i].to_dictionary())
                 JStr = Base.to_json_string(obj_list)
+            else:
+                for i in range(len(list_objs)):
+                    obj_list.append(list_objs[i].to_dictionary())
+                    JStr = Base.to_json_string(obj_list)
             file_obj.write(JStr)
 
     @staticmethod
