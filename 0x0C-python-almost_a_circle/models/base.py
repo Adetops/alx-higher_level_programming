@@ -31,7 +31,8 @@ class Base:
         if list_dictionaries is None or bool(list_dictionaries) is False:
             return "[]"
         else:
-            return json.dumps(list_dictionaries)
+            New = json.dumps(list_dictionaries)
+            return (New)
 
     @classmethod
     def save_to_file(cls, list_objs):
@@ -78,3 +79,26 @@ class Base:
                 for dictionary in cls.from_json_string(file_obj.read()):
                     instances.append(cls.create(**dictionary))
         return instances
+
+@classmethod
+def save_to_file_csv(cls, list_objs):
+    filename = cls.__name__ + '.csv'
+    obj_list = []
+    if list_objs is not None:
+        for objs in list_objs:
+            dic = objs.to_dictionary()
+            obj_list.append(dic)
+    rectangle_header = ['id', 'width', 'height', 'x', 'y']
+    square_header = ['id', 'size', 'x', 'y']
+    with open(filename, "w") as csvfile:
+        if list_objs is None:
+            Cobj = []
+        else:
+            if cls.__name__ == 'Rectangle':
+                head = csv.writeheader(rect)
+            for i in range(len(list_objs)):
+                obj_list.append(list_objs[i].to_dictionary())
+                JStr = Base.to_json_string(obj_list)
+            file_obj.write(JStr)
+@classmethod
+def load_from_file_csv(cls):
