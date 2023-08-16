@@ -23,7 +23,27 @@ class Base:
         if list_dictionaries is None or not list_dictionaries:
             return "[]"
         else:
+<<<<<<< HEAD
+            New = json.dumps(list_dictionaries)
+            return (New)
+
+    @classmethod
+    def save_to_file(cls, list_objs):
+        ''' writes the JSON string representation of list_objs to a file '''
+
+        file = "{}.json".format(cls.__name__)
+        obj_list = []
+        with open(file, "w") as file_obj:
+            if list_objs is None:
+                JStr = Base.to_json_string(obj_list)
+            else:
+                for i in range(len(list_objs)):
+                    obj_list.append(list_objs[i].to_dictionary())
+                    JStr = Base.to_json_string(obj_list)
+            file_obj.write(JStr)
+=======
             return dumps(list_dictionaries)
+>>>>>>> 7716dd44864ad13b0c2b373010f0f7684f4a3b07
 
     @staticmethod
     def from_json_string(json_string):
@@ -45,6 +65,37 @@ class Base:
         '''Loads string from file and unjsonifies.'''
         from os import path
         file = "{}.json".format(cls.__name__)
+<<<<<<< HEAD
+        instances = []
+        if os.path.isfile(file):
+            with open(file, "r", encoding="UTF-8") as file_obj:
+                for dictionary in cls.from_json_string(file_obj.read()):
+                    instances.append(cls.create(**dictionary))
+        return instances
+
+@classmethod
+def save_to_file_csv(cls, list_objs):
+    filename = cls.__name__ + '.csv'
+    obj_list = []
+    if list_objs is not None:
+        for objs in list_objs:
+            dic = objs.to_dictionary()
+            obj_list.append(dic)
+    rectangle_header = ['id', 'width', 'height', 'x', 'y']
+    square_header = ['id', 'size', 'x', 'y']
+    with open(filename, "w") as csvfile:
+        if list_objs is None:
+            Cobj = []
+        else:
+            if cls.__name__ == 'Rectangle':
+                head = csv.writeheader(rect)
+            for i in range(len(list_objs)):
+                obj_list.append(list_objs[i].to_dictionary())
+                JStr = Base.to_json_string(obj_list)
+            file_obj.write(JStr)
+@classmethod
+def load_from_file_csv(cls):
+=======
         if not path.isfile(file):
             return []
         with open(file, "r", encoding="utf-8") as f:
@@ -126,3 +177,4 @@ class Base:
             t.end_fill()
 
         time.sleep(5)
+>>>>>>> 7716dd44864ad13b0c2b373010f0f7684f4a3b07
