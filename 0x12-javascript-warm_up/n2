@@ -1,0 +1,21 @@
+#!/usr/bin/node
+
+const process = require('process');
+const args = process.argv.slice(2);
+let count = 0;
+
+for (let i in args) {
+  if (Object.prototype.hasOwnProperty.call(args, i)) {
+    count++;
+  }
+}
+
+while (args) {
+  if (args.count === 0) {
+    console.log('No argument');
+  } else {
+    args.forEach((val, index) => {
+      console.log(`${val}`);
+    });
+  }
+}

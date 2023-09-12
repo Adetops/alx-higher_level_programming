@@ -8,10 +8,14 @@ function count (...args) {
   }, 0);
 }
 
+let a = args[0];
+let b = args[1];
 if (count(...args) < 1) {
-  console.log('No argument');
+  a = 'undefined'; b = 'undefined';
+  console.log(a + ' is ' + b);
 } else if (count(...args) === 1) {
-  console.log('Argument found');
+  b = 'undefined';
+  console.log(a + ' is ' + b);
 } else {
-  console.log('Arguments found');
+  console.log(a + ' is ' + b);
 }
