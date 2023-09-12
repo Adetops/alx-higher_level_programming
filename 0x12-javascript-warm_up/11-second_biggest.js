@@ -11,13 +11,15 @@ function count (...args) {
 if (count(...args) <= 1) {
   console.log(0);
 } else {
-  let secondLargest = 0;
-  for (let i = 0; i < count(...args); i++) {
+  let secondLargest;
+  let temp;
+  for (let i = 0; i < count(...args) - 1; i++) {
     if (Number(args[i]) > Number(args[i + 1])) {
-      secondLargest = args[i + 1];
-    } else {
-      secondLargest = args[i];
+      temp = args[i];
+      args[i] = args[i + 1];
+      args[i + 1] = temp;
     }
+    secondLargest = args[i];
   }
   console.log(secondLargest);
 }
